@@ -1,0 +1,139 @@
+<% layout('/layouts/boilerplate') -%>
+<link rel="stylesheet" href="/css/showUser.css">
+<body>
+    <div class="user">
+        <div class="user-det">
+            <div class="basic-det">
+                <i class="fa-solid fa-user"></i>
+                <div class="details">
+                    <p class="username"><%=user.name%></p>
+                    <p><b>Gender : </b><%=user.gender%></p>
+                    <p><b>D.O.B : </b><%=user.dob.toString().split(" ").slice(1,4).join("-")%></p>
+                </div>
+            </div>
+
+            <% if(currUser && currUser.role=='admin'){ %>
+                <div class="btns">
+                    <form method="GET" action="/allUsers/<%=user.id%>/editUser" class="edit-btn">
+                        <button class="btn btn-success">Edit</button>
+                    </form>
+                    
+                    <form method="POST" action="/allUsers/<%=user.id%>?_method=DELETE" class="del-btn">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+    
+                    <form method="GET" action="/allUsers/<%=user._id%>/lendBook" class="lend-btn">
+                        <button class="btn btn-dark">Lend Book</button>
+                    </form>
+                </div>
+            <% } %>
+
+            <hr>
+
+            <div class="other-det table-responsive">
+                <table class="table table-bordered table-hover">
+                    <tbody>
+                        <tr>
+                            <td>ID</td>
+                            <td><%=user._id%></td>
+                        </tr>
+                        <tr>
+                            <td>Contact</td>
+                            <td><%=user.contact%></td>
+                        </tr>
+                        <tr>
+                            <td>Email ID</td>
+                            <td><%=user.emailId%></td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td><%=user.address%></td>
+                        </tr>
+                        <tr>
+                            <td>Regd. Date</td>
+                            <td><%=user.regd_date.toString().split(" ").slice(1,4).join("-")%></td>
+                        </tr>
+                        <tr>
+                            <td>Fines</td>
+                            <td><%=user.fines%></td>
+                        </tr>
+                        <tr>
+                            <td>Borrows</td>
+                            <td><%=user.borrows%></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <% let count = user.borrowing_history.length %>
+        <div class="pending-returns">
+            <h3>Pending Returns</h3>
+            <% for(history of user.borrowing_history) { %>
+                <% if(!history.return_date){ %>
+                    <% count-=1 %>
+                    <div class="book-container">
+                        <div class="each-book">
+                            <div class="book-img">
+                                <img src="<%=history.book.image.url%>" alt="">
+                            </div>
+                            <div class="book-det">
+                                <a href="/allBooks/<%=history.book.id%>" class="book-name"><%=history.book.title%></a>
+                                <p><b>Author : </b><%=history.book.author%></p>
+                                <p><b>Borrow Date : </b><%=history.borrowing_date.toString().split(" ").slice(1,4).join("-")%></p>
+                            </div>
+                        </div>
+                        <% if(currUser && currUser.role=='admin'){ %>
+                            <a href="/allUsers/<%=user.id%>/bookReturned?idx=<%=history.idx%>">
+                                <button class="btn btn-info offset-5 return-btn">Returned</button>
+                            </a>
+                        <% } %>
+                    </div>
+                <% } %>
+            <% } %>
+            <% if(count==user.borrowing_history.length){ %>
+                <p class="no-pending-returns">No pending Returns</p>
+            <% } %> 
+        </div>
+    </div>
+
+    <% if(user.borrowing_history.length && count>0){ %>
+        <div class="borrow-history">
+            <h3 class="heading">Borrowing History</h3>
+            <% for(history of user.borrowing_history) { %>
+                <% if(history.return_date){ %>
+                    <div class="book-container">
+                        <div class="each-book">
+                            <div class="book-img">
+                                <img src="<%=history.book.image.url%>" alt="">
+                            </div>
+                            <div class="book-det">
+                                <a href="/allBooks/<%=history.book.id%>" class="book-name"><%=history.book.title%></a>
+                                <p><b>Author : </b><%=history.book.author%></p>
+                                <p><b>Borrow Date : </b><%=history.borrowing_date.toString().split(" ").slice(1,4).join("-")%></p>
+                                <p><b>Return Date : </b><%=history.return_date.toString().split(" ").slice(1,4).join("-")%></p>
+                                <p><b>Fine : </b><%=history.fine%></p>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+                    
+                    <!-- <a href="/allUsers/<%=user.id%>/deleteBorrowBook?bookId=<%=history.book.id%>"><button>Delete</button></a> -->
+
+            <% } %>
+        </div>
+    <% } %>
+                
+</body>
+<script>
+    document.querySelector(".del-btn").addEventListener("submit",(e)=>{
+        // console.log("confirm message ");
+        let conMsg = confirm("Are you sure you want to delete this user ?");
+        if(!conMsg){
+            event.preventDefault();
+        }
+    });
+</script>
+
+
+

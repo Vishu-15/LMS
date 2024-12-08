@@ -1,0 +1,21 @@
+<% layout('/layouts/boilerplate') -%>
+<link rel="stylesheet" href="/css/auth.css">
+<body>
+    <div class="col-6 offset-3 mt-3 auth-box">
+        <h3 class="text-center">ACCESS LIBRARY</h3><br>
+        <form method="POST" action="/login">
+            <div class="form-floating mb-3">
+                <input name="emailId" type="email" placeholder="Enter Email" class="form-control" required>
+                <label for="email" class="form-label">Enter Email</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input name="password" type="password" placeholder="Enter Password" class="form-control" required>
+                <label for="password" class="form-label">Enter Password</label>
+            </div>
+            <button class="auth-btn">Login</button>
+            <!-- <div>
+                Not Yet Logged In ? <a href="/signup">Sign Up</a>
+            </div> -->
+        </form>
+    </div>
+</body>

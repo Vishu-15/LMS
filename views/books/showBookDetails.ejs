@@ -1,0 +1,122 @@
+<% layout('/layouts/boilerplate') -%>
+<link rel="stylesheet" href="/css/bookDetails.css">
+<body>
+    <h3 class="heading"><%=currBook.title%></h3>
+    <div class="det-container">
+        <div class="book-img">
+            <img src="<%=currBook.image.url%>" class="img-thumbnail" alt="">
+        </div>
+
+        <div class="book-details">
+            <h4>Book Details</h4>
+            <table class="table table-bordered table-info table-hover">
+                <tbody>
+                    <tr>
+                        <td>ID</td>
+                        <td><%=currBook._id%></td>
+                    </tr>
+                    <tr>
+                        <td>Title</td>
+                        <td><%=currBook.title%></td>
+                    </tr>
+                    <tr>
+                        <td>Publisher</td>
+                        <td><%=currBook.publisher%></td>
+                    </tr>
+                    <tr>
+                        <td>Genre</td>
+                        <td><%=currBook.genre%></td>
+                    </tr>
+                    <tr>
+                        <td>Language</td>
+                        <td><%=currBook.language%></td>
+                    </tr>
+                    <tr>
+                        <td>Year Of Release</td>
+                        <td><%=currBook.year%></td>
+                    </tr>
+                    <tr>
+                        <td>Quantity</td>
+                        <td><%=currBook.quantity%></td>
+                    </tr>
+                    <tr>
+                        <td>Rack</td>
+                        <td><%=currBook.rack%></td>
+                    </tr>
+                    <tr>
+                        <td>Shelf</td>
+                        <td><%=currBook.shelf%></td>
+                    </tr>
+                    <tr>
+                        <td>Borrow Count</td>
+                        <td><%=currBook.borrow_count%></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- <p><b>ID : </b><%=currBook._id%></p>
+            <p><b>Title : </b><%=currBook.title%></p>
+            <p><b>Publisher : </b><%=currBook.publisher%></p>
+            <p><b>Genre : </b><%=currBook.genre%></p>
+            <p><b>Language : </b><%=currBook.language%></p>
+            <p><b>Year : </b><%=currBook.year%></p>
+            <p><b>Quantity : </b><%=currBook.quantity%></p>
+            <p><b>Rack : </b><%=currBook.rack%></p>
+            <p><b>Shelf : </b><%=currBook.shelf%></p>
+            <p><b>Borrow Count : </b><%=currBook.borrow_count%></p> -->
+            <% if(currUser && currUser.role=='admin'){ %>
+                <div class="btns">
+                    <form action="/allBooks/<%=currBook.id%>/updateBook" class="edit-btn">
+                        <button class="bttn">Edit</button>
+                    </form>
+                
+                    <form method="POST" action="/allBooks/<%=currBook.id%>?_method=DELETE" class="del-btn">
+                        <button class="bttn">Delete</button>
+                    </form>
+                </div>
+            <% } %>
+        </div>
+
+    </div>
+
+    <% if(currBook.borrowers.length){ %>
+        <div class="borrowers">
+            <h4 class="heading">Borrowers</h4>
+            <div class="borrower-info">
+                <table class="table table-info table-bordered table-hover table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Borrow Date</th>
+                            <th>Return Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(borrower of currBook.borrowers) { %>
+                            <tr>
+                                <td>
+                                    <div><%=borrower.user.name%></div>
+                                </td>
+                                <td><%=borrower.borrowing_date.toString().split(" ").slice(1,4).join("-")%></td>
+                                <td><%=borrower.return_date? borrower.return_date.toString().split(" ").slice(1,4).join("-"):""%></td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    <% } %>
+
+
+</body>
+<script>
+    document.querySelector(".del-btn").addEventListener("submit",(e)=>{
+        // console.log("confirm message ");
+        let conMsg = confirm("Are you sure you want to delete this user ?");
+        if(!conMsg){
+            event.preventDefault();
+        }
+    });
+</script>
+
+

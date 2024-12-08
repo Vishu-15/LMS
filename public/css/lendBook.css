@@ -1,0 +1,93 @@
+.searched-books {
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem auto 0 auto;
+    justify-content: center;
+}
+
+.book-det {
+    width: 30.8%;
+    height: 16rem;
+    border: 1px solid black;
+    border-radius: 6px;
+    box-shadow: 2px 2px 12px 4px rgba(0, 0, 0, 0.37);
+    margin: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.book-title {
+    background-color: rgba(36, 202, 243, 0.416);
+    text-align: center;
+    color: black;
+    font-size: 1.3rem; /* Default font size for large screens */
+    font-weight: 600;
+}
+
+.other-det {
+    display: flex;
+    font-size: 1rem; /* Default font size for additional details */
+}
+.other-det .book-img {
+    margin-right: 1rem;
+}
+.other-det img {
+    width: 5rem;
+}
+.available {
+    color: green;
+    font-weight: bold;
+}
+.unavailable {
+    color: red;
+    font-weight: bold;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .book-det {
+        width: 45%;
+    }
+    .book-title {
+        font-size: 1.2rem; /* Slightly smaller on medium screens */
+    }
+    .other-det {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .book-det {
+        width: 100%;
+    }
+    .book-title {
+        font-size: 1rem; /* Smaller font size for mobile screens */
+    }
+    .other-det {
+        font-size: 0.8rem;
+    }
+    .other-det img {
+        width: 4rem; /* Smaller image size for mobile */
+    }
+}
+
+.lend-btn {
+    position: absolute;
+    bottom: 2px;
+    left: 30%;
+    transform: translateY(200%);
+    transition: all 0.2s ease;
+}
+.book-det:hover .lend-btn {
+    transform: translateY(0%);
+}
+
+.no-results {
+    margin: 10rem auto;
+    font-size: 1.5rem; /* Responsive font for no-results message */
+}

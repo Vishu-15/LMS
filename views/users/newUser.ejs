@@ -1,0 +1,61 @@
+<% layout('/layouts/boilerplate') -%>
+<link rel="stylesheet" href="/css/addBook.css">
+<body>
+    <div class="col-8 offset-2 mt-3 addForm">
+        <h3 class="text-center">ADD NEW MEMBER</h3><br>
+        <form method="POST" action="/allUsers">
+            <div class="mb-3">
+                <label for="name" class="form-label">Enter Full Name</label>
+                <input name="user[name]" type="text" class="form-control" required>
+            </div>
+            <div class="row">
+                <div class="mb-3 col-6">
+                    <label for="deb" class="form-label">Enter Date of Birth</label>
+                    <input name="user[dob]" type="date" class="form-control" required>
+                </div>
+                <div class="mb-3 col-6 text-center">
+                    <label for="gender" class="form-label mb-3">Select Gender</label>
+                    <div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="user[gender]" value="male" required>
+                            <label class="form-check-label" for="gender">Male</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="user[gender]" value="female" required>
+                            <label class="form-check-label" for="gender">Female</label>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 col-12">
+                <label for="address" class="form-label">Enter Address</label>
+                <textarea name="user[address]" type="text" class="form-control" required></textarea>
+            </div>
+            <div class="row">
+                <div class="mb-3 col-4">
+                    <label for="contact" class="form-label">Enter Phone Number</label>
+                    <input name="user[contact]" type="number" class="form-control" required>
+                </div>
+                <div class="mb-3 col-8">
+                    <label for="emailId" class="form-label">Enter Email ID</label>
+                    <input name="user[emailId]" type="email" class="form-control" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb-3 col-6">
+                    <label for="password" class="form-label">Enter Password</label>
+                    <input name="password" type="password" class="form-control" required>
+                </div>
+                <div class="mb-3 col-6">
+                    <label for="role" class="form-label">Select Role</label>
+                    <select name="role" id="" class="form-control">
+                        <option value="user" selected>User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button class="btn btn-danger  mt-3 offset-5">Submit</button>
+        </form>
+    </div>
+</body>

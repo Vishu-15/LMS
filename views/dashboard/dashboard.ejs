@@ -1,0 +1,74 @@
+<% layout('/layouts/boilerplate') -%>
+<link rel="stylesheet" href="/css/dashboard.css">
+<body>
+    <h3 class="heading">DASHBOARD</h3>
+    <div class="dashboard-container">
+        <% if(currUser && currUser.role=='user'){ %>
+            <a href="/allBooks" class="dash-component">
+                <div class="icon"><i class="fa-solid fa-book"></i></div>
+                <div class="dash-title">Explore Books</div>
+            </a>
+            <a href="/allBooks" class="dash-component">
+                <div class="icon"><i class="fa-solid fa-book"></i></div>
+                <div class="dash-title">View Book Details</div>
+            </a>
+            <a href="/allUsers/<%=currUser._id%>" class="dash-component">
+                <div class="icon"><i class="fa-solid fa-book"></i></div>
+                <div class="dash-title">My Account</div>
+            </a>
+            <% } %>
+            
+        <% if(currUser && currUser.role=='admin'){ %>
+            <a href="/allBooks" class="dash-component">
+                <div class="icon"><i class="fa-solid fa-book"></i></div>
+                <div class="dash-title">Explore Books</div>
+            </a>
+            <a href="/allBooks" class="dash-component">
+                <div class="icon"><i class="fa-solid fa-book"></i></div>
+                <div class="dash-title">View Book Details</div>
+            </a>
+            <a href="/allBooks/addBook" class="dash-component">
+                <div class="icon"><i class="fa-solid fa-book"></i></div>
+                <div class="dash-title">Add New Book</div>
+            </a>
+            <a href="/allBooks" class="dash-component">
+                <div class="icon"><i class="fa-solid fa-book"></i></div>
+                <div class="dash-title">Edit Book Details</div>
+            </a>
+            <a href="/allBooks" class="dash-component">
+                <div class="icon"><i class="fa-solid fa-book"></i></div>
+                <div class="dash-title">Delete Book</div>
+            </a>
+        
+            <a href="/allUsers" class="dash-component">
+                <div class="icon"><i class="fa-solid fa-book"></i></div>
+                <div class="dash-title">All Members</div>
+            </a>
+            <a href="/allUsers" class="dash-component">
+                <div class="icon"><i class="fa-solid fa-book"></i></div>
+                <div class="dash-title">View Member Details</div>
+            </a>
+            <a href="/allUsers/addUser" class="dash-component">
+                <div class="icon"><i class="fa-solid fa-book"></i></div>
+                <div class="dash-title">Add New Member</div>
+            </a>
+            <a href="/allUsers" class="dash-component">
+                <div class="icon"><i class="fa-solid fa-book"></i></div>
+                <div class="dash-title">Edit Member Details</div>
+            </a>
+            <a href="/allUsers" class="dash-component">
+                <div class="icon"><i class="fa-solid fa-book"></i></div>
+                <div class="dash-title">Delete Member</div>
+            </a>
+            <a href="/allUsers" class="dash-component">
+                <div class="icon"><i class="fa-solid fa-book"></i></div>
+                <div class="dash-title">Lend Book</div>
+            </a>
+            <a href="/allUsers" class="dash-component">
+                <div class="icon"><i class="fa-solid fa-book"></i></div>
+                <div class="dash-title">Return Book</div>
+            </a>
+        <% } %>
+        
+    </div>
+</body>

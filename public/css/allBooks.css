@@ -1,0 +1,106 @@
+.book-not-found {
+    margin: 2px auto;
+    text-align: center;
+    color: red;
+    font-size: 1.8rem; /* Base font size */
+    padding: 9rem; /* Large padding for larger screens */
+    background-color: white;
+}
+
+/* All Books */
+.all-books {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: white;
+}
+
+.all-books a {
+    text-decoration: none;
+    display: inline-block;
+    margin: 1rem 2rem;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    height: 24rem; /* Fixed height */
+    width: 14rem; /* Fixed width */
+    margin: 1rem 0; /* Base margin */
+    background-color: var(--tertiary-color);
+    box-shadow: 4px 4px 20px 8px rgba(0, 0, 0, 0.331);
+    border: 1px solid black;
+    overflow: hidden;
+    transition: transform 0.2s; /* Smooth scaling on hover */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slight scaling on hover */
+}
+
+.card-img-top {
+    height: 18rem;
+    width: 14rem; /* Fixed width */
+    margin: auto;
+    padding: 1rem;
+    object-fit: cover;
+}
+
+.card-body {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-title {
+    text-align: center;
+    overflow: hidden;
+    font-size: 1.1rem; /* Base font size */
+    font-weight: 600;
+    color: black;
+    text-shadow: 6px 6px 30px blue;
+}
+
+.card-text {
+    position: absolute;
+    bottom: 1rem;
+    left: 7rem;
+    margin: auto;
+}
+
+.available, .unavailable {
+    display: none;
+    color: white;
+    padding: 2px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2rem; /* Base font size */
+}
+
+.available {
+    background-color: green;
+}
+
+.unavailable {
+    background-color: red;
+}
+
+.card-img-overlay {
+    background-color: rgba(248, 244, 244, 0.674);
+    transform: translateY(-100%);
+    transition: all ease 0.2s;
+}
+
+.card:hover .card-img-overlay {
+    transform: translateY(0%);
+}
+
+.card-img-overlay:hover .available {
+    display: block;
+}
+
+.card-img-overlay:hover .unavailable {
+    display: block;
+}

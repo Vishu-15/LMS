@@ -1,0 +1,42 @@
+<% layout('./layouts/boilerplate.ejs') -%>
+<link rel="stylesheet" href="/css/allBooks.css">
+<body>
+  <h3 class="text-center">EXPLORE LIBRARY COLLECTION</h3>
+  <div class="search-bar">
+      <input type="text" placeholder="Enter the book title">
+      <button class="search-btn">Search</button>
+  </div>
+  <% if(!allBooks.length){ %>
+    <div class="book-not-found">No Results Found !</div>
+  <% } %>
+    <div class="all-books">
+        <% for(book of allBooks){ %>
+            <a href="/allBooks/<%=book._id%>">
+                <div class="card">
+                  <img src="<%=book.image.url%>" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <div class="card-title"><%=book.title%></div>
+                  </div>
+                    <div class="card-img-overlay">
+                      <!-- <p><%=book.title%></p> -->
+                      <% if (book.quantity > 0) { %>
+                        <p class="available">Available</p>
+                      <% } else { %>
+                        <p class="unavailable">Unavailable</p>
+                      <% } %>
+                    </div>
+                  </div>
+            </a>
+            <br><br>
+        <% } %>
+    </div>
+</body>
+<script>
+  document.querySelector('.search-bar>button').addEventListener('click', function() {
+    const bookName = document.querySelector('.search-bar>input').value;
+    window.location.href = `/allBooks?book=${encodeURIComponent(bookName)}`;
+  });
+</script>
+
+
+

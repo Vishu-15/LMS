@@ -1,0 +1,45 @@
+<% layout('./layouts/boilerplate.ejs') -%>
+<link rel="stylesheet" href="/css/lendBook.css">
+<body>
+    <h3 class="text-center mb-3">Search For The Book To Lend</h3>
+    <div class="search-bar">
+      <input type="text" placeholder="Enter book Title">
+      <button class="search-btn">Search</button>
+    </div>
+
+    <div class="searched-books">
+      <% if(books.length==0) { %>
+        <h4 class="text-center no-results">No Results Found !</h4>
+      <% } %>
+
+        <% for(book of books){ %>
+          <div class="book-det">
+            <p class="book-title"><%=book.title%></p>
+            <div class="other-det">
+              <div class="book-img">
+                <img src="<%=book.image.url%>" alt="">
+              </div>
+              <div>
+                <p>Author : <%=book.author%></p>
+                <p>Borrower Count : <%=book.borrow_count%></p>
+                <% if(book.quantity>0){ %>
+                  <p class="available">Available</p>
+                <% }else{ %>
+                  <p class="unavailable">Unavailable</p>
+                <% } %>
+              </div>
+            </div>
+
+            <a href="/allUsers/<%=user.id%>/lendBook/<%=book.id%>">
+              <button class="btn btn-dark lend-btn">Lend This Book</button>
+            </a>
+          </div>
+        <% } %>
+    </div>
+</body>
+<script>
+  document.querySelector('.search-bar>button').addEventListener('click', function() {
+    const bookName = document.querySelector('.search-bar>input').value;
+    window.location.href = `/allUsers/<%=user.id%>/lendBook?book=${encodeURIComponent(bookName)}`;
+  });
+</script>

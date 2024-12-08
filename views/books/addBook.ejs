@@ -1,0 +1,64 @@
+<% layout('/layouts/boilerplate') -%>
+<link rel="stylesheet" href="/css/addBook.css">
+<body>
+    <div class="col-8 offset-2 mt-3 addForm">
+        <h3 class="heading">ADD NEW BOOK</h3><br>
+        <form method="POST" action="/allBooks" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="title" class="form-label">Enter Book Title</label>
+                <input name="book[title]" type="text" class="form-control" required>
+            </div>
+            <div class="row">
+                <div class="mb-3 col-6">
+                    <label for="author" class="form-label">Enter Author Name</label>
+                    <input name="book[author]" type="text" class="form-control" required>
+                </div>
+                <div class="mb-3 col-6">
+                    <label for="publisher" class="form-label">Enter Publisher Name</label>
+                    <input name="book[publisher]" type="text" class="form-control" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb-3 col-4">
+                    <label for="genre" class="form-label">Enter Genre</label>
+                    <input name="book[genre]" type="text" class="form-control" required>
+                </div>
+                <div class="mb-3 col-4">
+                    <label for="language" class="form-label">Enter Language</label>
+                    <input name="book[language]" type="text" class="form-control" required>
+                </div>
+                <div class="mb-3 col-4">
+                    <label for="year" class="form-label">Enter Year of Release</label>
+                    <input name="book[year]" type="number" class="form-control" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb-3 col-4">
+                    <label for="isbn" class="form-label">Enter Book ISBN</label>
+                    <input name="book[isbn]" type="text" class="form-control" required>
+                </div>
+                <div class="mb-3 col-4">
+                    <label for="quantity" class="form-label">Enter Book Quantity</label>
+                    <input name="book[quantity]" type="number"  class="form-control" required>
+                </div>
+                <div class="mb-3 col-4">
+                    <label for="borrow_count" class="form-label">Enter Borrow Count</label>
+                    <input name="book[borrow_count]" type="number" class="form-control" required>
+                </div>
+                <div class="mb-3 col-3">
+                    <label for="rack" class="form-label">Enter Rack No.</label>
+                    <input name="book[rack]" type="number" class="form-control">
+                </div>
+                <div class="mb-3 col-3">
+                    <label for="shelf" class="form-label">Enter Shelf No.</label>
+                    <input name="book[shelf]" type="number" class="form-control">
+                </div>
+                <div class="mb-3 col-6">
+                    <label for="image" class="form-label">Upload Book Image</label>
+                    <input name="book[image]" type="file" class="form-control">
+                </div>
+            </div>
+            <button class="btn btn-danger mt-4 offset-5">Submit</button>
+        </form>
+    </div>
+</body>

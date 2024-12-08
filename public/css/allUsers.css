@@ -1,0 +1,115 @@
+/* Users */
+.all-users {
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; /* Improved spacing between items */
+    margin: 1rem auto;
+    padding: 0 1rem; /* Added padding for better alignment on smaller screens */
+}
+
+.each-user {
+    width:30.8%;
+    margin: 0.5rem;
+    border: 1px solid #ccc; /* Softer border color */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.15); /* Subtle shadow for modern look */
+    transition: background-color 0.3s, color 0.3s, transform 0.2s; /* Added smooth hover effect */
+    position: relative;
+}
+
+.each-user:hover {
+    color: white;
+    background-color: #333; /* Dark gray for better hover contrast */
+    transform: scale(1.02); /* Slight zoom-in effect */
+}
+
+.each-user > .fa-user {
+    font-size: 2.5rem; /* Adjusted base font size */
+    margin: 1.5rem;
+    padding: 1.5rem;
+    background-color: rgba(200, 200, 200, 0.5); /* Softer background */
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.each-user > .user-det {
+    margin: 1rem;
+    flex: 1; /* Allows details to take up available space */
+}
+
+.user-det > p {
+    font-size: 1.1rem; /* Standard font size */
+    margin: 0.5rem 0; /* Consistent spacing */
+}
+
+.user-role {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.5rem 1rem;
+    background-color: #e74c3c; /* Modern red tone */
+    color: white;
+    font-size: 0.9rem; /* Slightly smaller label */
+    font-weight: bold;
+    border-radius: 0 0 8px 0; /* Rounded corner for better design */
+}
+
+.username {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem; /* Spacing below the username */
+}
+
+.no-user-exists {
+    text-align: center;
+    padding: 6rem 1rem; /* Balanced padding for responsiveness */
+    margin: auto;
+    font-size: 1.8rem;
+    color: #e74c3c; /* Consistent with the user-role color */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .each-user {
+        flex: 1 1 calc(45% - 2rem); /* Adjust width for medium screens */
+    }
+    .user-det > p,
+    .username {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .each-user {
+        flex: 1 1 100%; /* Full width for smaller screens */
+        margin: 0.5rem 0;
+    }
+    .each-user > .fa-user {
+        font-size: 2rem;
+    }
+    .user-det > p,
+    .username {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .each-user > .fa-user {
+        font-size: 1.8rem;
+    }
+    .no-user-exists {
+        font-size: 1.4rem;
+        padding: 3rem 1rem;
+    }
+    .user-role {
+        font-size: 0.8rem; /* Adjust for smaller screens */
+    }
+}

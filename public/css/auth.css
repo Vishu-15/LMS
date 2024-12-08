@@ -1,0 +1,65 @@
+body {
+    background-color: rgba(145, 145, 145, 0.174);
+    font-family: Arial, sans-serif;
+}
+
+.auth-box {
+    background-color: white;
+    padding: 2rem;
+    border: 0.1px solid black;
+    border-radius: 10px;
+    text-align: center;
+    width: 60%; /* Default width for large screens */
+    margin: 2rem auto;
+}
+
+.auth-btn {
+    margin: 2rem auto;
+    padding: 1rem;
+    background: blue;
+    color: white;
+    width: 100%;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.auth-btn:hover {
+    background: rgb(202, 3, 3);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .auth-box {
+        width: 80%; /* Increase width for smaller screens */
+        padding: 1.5rem; /* Slightly reduce padding */
+    }
+    .auth-btn {
+        font-size: 1rem; /* Slightly smaller button font */
+    }
+}
+
+@media (max-width: 768px) {
+    .auth-box {
+        width: 90%; /* Full width on smaller screens */
+        padding: 1rem; /* Further reduce padding */
+    }
+    .auth-btn {
+        font-size: 0.9rem; /* Smaller font size on mobile */
+        padding: 0.8rem; /* Smaller padding for button */
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-box {
+        width: 100%; /* Full-width on very small screens */
+        padding: 0.8rem;
+    }
+    .auth-btn {
+        font-size: 0.85rem; /* Even smaller button font */
+        padding: 0.7rem;
+    }
+}
+

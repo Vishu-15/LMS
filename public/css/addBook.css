@@ -1,0 +1,37 @@
+.heading {
+    text-align: center;
+    font-size: 2rem; /* Base font size */
+}
+
+/* AddForm Styles */
+.addForm {
+    background-color: white;
+    padding: 2rem;
+    margin-bottom: 4rem;
+    border-radius: 10px;
+    max-width: 800px; /* Limit the width on larger screens */
+    margin: 2rem auto; /* Center the form */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .heading {
+        font-size: 1.8rem; /* Adjust font size for smaller screens */
+    }
+
+    .addForm {
+        padding: 1.5rem; /* Reduce padding on smaller screens */
+        margin-bottom: 2rem; /* Adjust margin for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .heading {
+        font-size: 1.5rem; /* Further reduce font size for mobile */
+    }
+
+    .addForm {
+        padding: 1rem; /* Further reduce padding for mobile */
+        margin-bottom: 1.5rem; /* Adjust margin for mobile */
+    }
+}

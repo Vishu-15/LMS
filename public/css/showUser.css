@@ -1,0 +1,222 @@
+/* Base Styles */
+.user {
+    display: flex;
+}
+
+.user-det {
+    background-color: white;
+    box-shadow: 2px 2px 12px 4px rgba(0, 0, 0, 0.37);
+    margin: 1rem;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.basic-det {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem 4rem;
+}
+
+.fa-user {
+    font-size: 4rem;
+    background-color: rgba(128, 128, 128, 0.511);
+    padding: 1rem;
+    border-radius: 10px;
+    margin: auto 0;
+}
+
+.details {
+    margin: 1rem 2rem;
+}
+
+.details p {
+    line-height: 1.2;
+    font-size: 1.2rem;
+}
+
+.username {
+    font-size: 1.5rem !important;
+    font-weight: 600;
+    margin: 1rem 0;
+    margin-bottom: 2rem;
+    color: blue;
+}
+
+.other-det {
+    width: 100%;
+    padding: 2rem;
+}
+
+.other-det table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.other-det td {
+    text-align: center;
+    word-wrap: break-word;
+    white-space: normal;
+    padding: 1rem;
+    font-size: 1.2rem;
+}
+
+td:first-child {
+    font-weight: 700;
+    width: 25%;
+}
+
+/* Buttons */
+.btns {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 3rem;
+}
+
+.edit-btn, .del-btn, .lend-btn {
+    margin: 0 1rem;
+}
+
+.return-btn:hover {
+    background-color: blue;
+    color: white;
+}
+
+/* Pending Returns */
+.pending-returns {
+    background-color: white;
+    padding: 2rem 1rem;
+    margin: 1rem;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 2px 12px 4px rgba(0, 0, 0, 0.37);
+}
+
+.no-pending-returns {
+    color: red;
+    margin-top: 10rem;
+    font-size: 1.2rem;
+}
+
+.book-container {
+    width: 90%;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 6px;
+    box-shadow: 1px 1px 12px 1px rgba(0, 0, 0, 0.37);
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.each-book {
+    display: flex;
+}
+
+.book-img {
+    margin: 0 1rem;
+    width: 20%;
+    display: flex;
+    align-items: center;
+}
+
+.book-img img {
+    width: 5rem;
+}
+
+.book-det {
+    width: 80%;
+    margin: 0 1rem;
+}
+
+.book-det p {
+    line-height: 1.5;
+    margin-top: 1.2rem;
+}
+
+.book-det > a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: blue;
+    font-weight: 600;
+    padding-bottom: 2rem;
+}
+
+/* Borrow History */
+.borrow-history {
+    background-color: white;
+    box-shadow: 2px 2px 12px 4px rgba(0, 0, 0, 0.37);
+    padding: 1rem 8rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.borrow-history .heading {
+    text-align: center;
+    margin: 1rem;
+}
+
+.borrow-history .book-img img {
+    width: 8rem !important;
+}
+
+.borrow-history .book-img{
+    margin:0 2rem;
+}
+
+.borrow-history .book-det p {
+    font-size: 1.2rem;
+}
+
+.borrow-history .book-name {
+    font-size: 1.4rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .user-det, .pending-returns {
+        width: 75%; /* Slightly wider on medium screens */
+    }
+    .details p, .other-det td, .borrow-history .book-det p {
+        font-size: 1.1rem; /* Adjusted font size */
+    }
+}
+
+@media (max-width: 768px) {
+    .user-det, .pending-returns {
+        width: 90%; /* Full width on small screens */
+    }
+    .basic-det, .btns {
+        padding: 1rem 2rem;
+    }
+    .details p, .other-det td, .borrow-history .book-det p {
+        font-size: 1rem; /* Smaller font for readability */
+    }
+    .fa-user {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .user-det, .pending-returns, .book-container, .borrow-history {
+        width: 100%;
+        padding: 1rem;
+    }
+    .details p, .other-det td, .borrow-history .book-det p {
+        font-size: 0.9rem;
+    }
+    .fa-user {
+        font-size: 2.5rem;
+    }
+    .book-img img, .borrow-history .book-img img {
+        width: 4rem !important;
+    }
+    .username {
+        font-size: 1.2rem;
+    }
+}
