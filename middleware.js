@@ -27,7 +27,9 @@ module.exports.isLoggedIn = (req,res,next)=>{
         req.flash("error","Login to access the Library");
         return res.redirect("/login");
     }
-    next();
+    else{
+        next();
+    }
 }
 
 module.exports.saveRedirectUrl = (req,res,next)=>{

@@ -88,7 +88,7 @@ app.use('/',usersRoute);
 // app.use('/',adminsRoute);
 
 app.get('/',isLoggedIn, wrapAsync((req,res)=>{
-    res.render('dashboard/dashboard.ejs');
+    res.render('dashboard/dashboard.ejs',{currUser:req.user});
 }));
 
 app.get('/getUser',(req,res)=>{

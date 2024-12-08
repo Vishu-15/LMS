@@ -72,7 +72,8 @@ router.post("/login",
         failureRedirect:"/login",
         failureFlash:true,
     }),
-    wrapAsync(async(req,res)=>{
+    wrapAsync(async(req,res,next)=>{
+        if (!req.user) return next(); // Stop execution if not authenticated
         req.flash(
             'success',
             req.user.role == 'admin'
@@ -171,7 +172,7 @@ router.get('/allUsers/:userId/bookReturned',isLoggedIn, wrapAsync(async(req,res)
 
     await user.save();
     await book.save();
-    res.redirect(`/allUsers/${userId}`);
+    return res.redirect(`/allUsers/${userId}`);
 }));
 
 
